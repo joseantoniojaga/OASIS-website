@@ -1,0 +1,88 @@
+/* Quitamos cualquier recuadro de color de fondo en el header */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 5%;
+    background-color: transparent; /* Fondo transparente */
+    position: relative; /* Necesario para el centrado absoluto del nav */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilo del Logo (Izquierda) */
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: #003f2b;
+    margin: 0;
+}
+
+/* CENTRADO REAL: El nav flota justo en el medio del header */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Separadores | con transparencia para que sean sutiles */
+.nav-links li:not(:last-child)::after {
+    content: "|";
+    margin-left: 15px;
+    color: #4d4d4d;
+    opacity: 0.3; 
+}
+
+.nav-links li a {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #4d4d4d;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #a1c68b;
+}
+
+/* Botón Join (Derecha) */
+.join-btn {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #003f2b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #003f2b; /* Solo una línea abajo para un toque único */
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.join-btn:hover {
+    opacity: 0.6;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 900px) {
+    .main-header {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .nav-center {
+        position: static;
+        transform: none;
+        margin: 20px 0;
+    }
+}
