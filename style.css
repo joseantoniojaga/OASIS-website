@@ -64,7 +64,7 @@
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    border-bottom: 2px solid #003f2b; /* Solo una línea abajo para un toque único */
+    border-bottom: 2px solid #003f2b; 
     padding-bottom: 4px;
     transition: 0.3s;
 }
@@ -73,7 +73,7 @@
     opacity: 0.6;
 }
 
-/* Ajuste para móviles */
+/* Ajuste para para que se adapte al telefono */
 @media (max-width: 900px) {
     .main-header {
         flex-direction: column;
@@ -83,5 +83,103 @@
         position: static;
         transform: none;
         margin: 20px 0;
+    }
+}
+
+/* ABOUT US - MISSION & VISION */
+
+.mission-vision-section {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* íneas a los lados del título */
+.section-title-lines {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #003f2b; 
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: riseFade 2s ease-out forwards;
+}
+
+/* aqui estoy agregando las lineas */
+.section-title-lines::before,
+.section-title-lines::after {
+    content: '';
+    flex: 1; /* Hace que las líneas tomen todo el espacio sobrante */
+    border-bottom: 1px solid #4d4d4d; 
+    margin: 0 30px; /* Separación entre la línea y el texto */
+}
+
+/* dividiendo en columnas mission y vission */
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 80px; /* Espacio entre misión y visión */
+    padding: 0 5%;
+}
+
+.mv-block {
+    text-align: center; /* Centra el texto y el icono */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: riseFade 2s ease-out 0.5s both;
+}
+
+/* emojis */
+.mv-icon {
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+}
+
+.mv-block h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: #003f2b;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.mv-block p {
+    font-family: 'Inter', sans-serif; 
+    font-size: 0.95rem;
+    color: #4d4d4d;
+    line-height: 1.6;
+}
+
+/* Animacion para mision y vision */
+@keyframes riseFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* para que la pagina este apta para dispositivos móviles la parte de about us  */
+@media (max-width: 768px) {
+    .section-title-lines {
+        font-size: 1.2rem;
+    }
+    
+    .section-title-lines::before,
+    .section-title-lines::after {
+        margin: 0 15px; /* Líneas más cortas en celular */
+    }
+
+    .mv-grid {
+        grid-template-columns: 1fr; /* Una sola columna: visión abajo de misión */
+        gap: 50px;
     }
 }
