@@ -193,18 +193,19 @@ body {
 
 .pillars-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales en computadora */
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px; 
     justify-items: center; 
-    align-items: center;
+    align-items: center; /* Esto es clave para que si una es más alta, no se mueva el eje */
     padding: 20px 0;
 }
 
 /* Estilo general para todos los post-its */
 .pillar-postit {
     width: 100%;
-    max-width: 260px; 
-    height: auto;
+    max-width: 340px; 
+    height: 340px; /* Define una altura fija igual al ancho máximo */
+    object-fit: contain; /* Esto asegura que la imagen quepa sin deformarse */
     transition: transform 0.3s ease;
     opacity: 0;
     animation: riseFade 1.5s ease-out forwards;
@@ -217,10 +218,22 @@ body {
 }
 
 /* Retrasamos un poco la animación para que aparezcan uno por uno */
-.postit-a { animation-delay: 0.3s;}
-.postit-b { animation-delay: 0.5s; }
-.postit-c { animation-delay: 0.7s; }
-.postit-d { animation-delay: 0.9s; }
+.postit-a { animation-delay: 0.3s; rotate -2deg;}
+.postit-b { animation-delay: 0.5s; rotate: 1.5deg;}
+.postit-c { animation-delay: 0.7s; rotate -1deg;}
+.postit-d { animation-delay: 0.9s; rotate 2deg;}
+
+/* Añade esto al final de tu CSS */
+.postit-a {
+    width: 110%; /* Lo hacemos un poco más grande que el contenedor base */
+    animation-delay: 0.3s;
+    transform: none; 
+}
+
+/* Nota: Si usas esto, cambia el hover para que no se rompa */
+.postit-a:hover {
+    transform: scale(1.02) !important;
+}
 
 @media (max-width: 1024px) {
     .pillars-grid {
