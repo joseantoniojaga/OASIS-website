@@ -1,3 +1,20 @@
+html {
+    overflow-y: scroll; /* Obliga a que siempre haya espacio para el scroll, evitando el "salto" */
+    overflow-x: hidden; /* Evita que la página se mueva hacia los lados en celular */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 .main-header {
     display: flex;
     align-items: center;
@@ -131,7 +148,7 @@
     text-align: center; /* Centra el texto y el icono */
     opacity: 0;
     transform: translateY(50px);
-    animation: riseFade 2s ease-out 0.5s both;
+    animation: riseFade 2s ease-out 0.3s both;
 }
 
 /* emojis */
@@ -164,6 +181,62 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.pillars-section {
+    padding: 10px 5% 60px;
+    max-width: 1200px;
+    margin: 0 auto; 
+    animation: riseFade 2s ease-out 0.6s both;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales en computadora */
+    gap: 30px; 
+    justify-items: center; 
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* Estilo general para todos los post-its */
+.pillar-postit {
+    width: 100%;
+    max-width: 260px; 
+    height: auto;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: riseFade 1.5s ease-out forwards;
+    cursor: pointer;
+}
+
+/* Hover zoom effect para los post-its */
+.pillar-postit:hover {
+    transform: scale(1.02) !important;
+}
+
+/* Retrasamos un poco la animación para que aparezcan uno por uno */
+.postit-a { animation-delay: 0.3s;}
+.postit-b { animation-delay: 0.5s; }
+.postit-c { animation-delay: 0.7s; }
+.postit-d { animation-delay: 0.9s; }
+
+@media (max-width: 1024px) {
+    .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+}
+
+/* Celular: 1 columna hacia abajo */
+@media (max-width: 600px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .pillar-postit {
+        max-width: 280px; 
     }
 }
 
