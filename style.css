@@ -172,7 +172,7 @@ body {
     line-height: 1.6;
 }
 
-/* Animacion para mision y vision */
+/* Animacion riseFade */
 @keyframes riseFade {
     from {
         opacity: 0;
@@ -196,36 +196,34 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px; 
     justify-items: center; 
-    align-items: center; /* Esto es clave para que si una es más alta, no se mueva el eje */
+    align-items: center; 
     padding: 20px 0;
 }
 
-/* Estilo general para todos los post-its */
+
 .pillar-postit {
     width: 100%;
     max-width: 340px; 
-    height: 340px; /* Define una altura fija igual al ancho máximo */
-    object-fit: contain; /* Esto asegura que la imagen quepa sin deformarse */
+    height: 340px; 
+    object-fit: contain; 
     transition: transform 0.3s ease;
     opacity: 0;
     animation: riseFade 1.5s ease-out forwards;
     cursor: pointer;
 }
 
-/* Hover zoom effect para los post-its */
 .pillar-postit:hover {
     transform: scale(1.02) !important;
 }
 
-/* Retrasamos un poco la animación para que aparezcan uno por uno */
-.postit-a { animation-delay: 0.3s; rotate -2deg;}
+.postit-a { animation-delay: 0.3s; rotate: -2deg;}
 .postit-b { animation-delay: 0.5s; rotate: 1.5deg;}
-.postit-c { animation-delay: 0.7s; rotate -1deg;}
-.postit-d { animation-delay: 0.9s; rotate 2deg;}
+.postit-c { animation-delay: 0.7s; rotate: -1deg;}
+.postit-d { animation-delay: 0.9s; rotate: 2deg;}
 
 /* Añade esto al final de tu CSS */
 .postit-a {
-    width: 110%; /* Lo hacemos un poco más grande que el contenedor base */
+    width: 110%; 
     animation-delay: 0.3s;
     transform: none; 
 }
@@ -268,4 +266,30 @@ body {
         grid-template-columns: 1fr; /* Una sola columna: visión abajo de misión */
         gap: 50px;
     }
+}
+
+   PROJECTS 
+
+.cuttingBoard-section {
+    padding: 20px 5% 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 80vh; 
+}
+
+/* El contenedor "padre" que mantendrá todo en su lugar */
+.cuttingBoard-container {
+    position: relative; 
+    width: 100%;
+    max-width: 1400px; 
+    margin: -20px auto 0;
+}
+
+/* Tu imagen del corcho */
+.cuttingBoard-base {
+    display: block;
+    width: 100%;
+    height: auto; 
 }
