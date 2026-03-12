@@ -90,19 +90,6 @@ body {
     opacity: 0.6;
 }
 
-/* Ajuste para para que se adapte al telefono */
-@media (max-width: 900px) {
-    .main-header {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .nav-center {
-        position: static;
-        transform: none;
-        margin: 20px 0;
-    }
-}
-
 /* ABOUT US - MISSION & VISION */
 
 .mission-vision-section {
@@ -233,15 +220,149 @@ body {
     transform: scale(1.02) !important;
 }
 
-@media (max-width: 1024px) {
+/* FOOTER */
+.main-footer {
+    background-color: #003f2b; 
+    color: #ffffff;
+    padding: 40px 5% 15px;
+    margin-top: 80px; 
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-left .footer-logo {
+    height: 40px;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1); /* aqui estiy haciendo blanco el logo */
+}
+
+.footer-left p {
+    font-size: 0.9rem;
+    color: #d1e0d7;
+    margin: 0;
+    max-width: 300px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-heading {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #a1c68b; /* El verde claro de tu hover */
+}
+
+.social-links {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #a1c68b;
+}
+
+.social-icon:hover svg {
+    transform: translateY(-3px); /* Pequeño saltito del icono insta y email al pasar el mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* PROJECTS */ 
+
+.cuttingBoard-section {
+    padding: 20px 5% 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 80vh; 
+}
+
+.cuttingBoard-container {
+    position: relative; 
+    width: 100%;
+    max-width: 1400px; 
+    margin: -20px auto 0;
+}
+
+.cuttingBoard-base {
+    display: block;
+    width: 100%;
+    height: auto; 
+}
+
+.projects-postit {
+    position: absolute;
+    top: 12%;
+    right: 15%;
+    width: 15%;
+    min-width: 120px; 
+    max-width: 200px; 
+    z-index: 10;
+    transform: rotate(6deg); 
+    filter: drop-shadow(3px 5px 8px rgba(0, 0, 0, 0.3)); 
+}
+
+.events-postit {
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    width: 15%;
+    min-width: 120px; 
+    max-width: 200px; 
+    z-index: 10;
+    transform: rotate(-4deg); 
+    filter: drop-shadow(-3px 5px 8px rgba(0, 0, 0, 0.3)); 
+}
+
+/* todo esto hace que la pagina sea apta para pantallas pequenas, es decir para el celular */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .nav-center {
+        position: static;
+        transform: none;
+        margin: 20px 0;
+    }
+
     .pillars-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
     }
-}
 
-/* Celular: 1 columna hacia abajo */
-@media (max-width: 600px) {
     .pillars-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -249,10 +370,25 @@ body {
     .pillar-postit {
         max-width: 280px; 
     }
-}
 
-/* para que la pagina este apta para dispositivos móviles la parte de about us  */
-@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .footer-left p {
+        margin: 0 auto;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
     .section-title-lines {
         font-size: 1.2rem;
     }
@@ -266,30 +402,45 @@ body {
         grid-template-columns: 1fr; /* Una sola columna: visión abajo de misión */
         gap: 50px;
     }
-}
 
-   PROJECTS 
+    .cuttingBoard-section {
+        /* Esto crea el margen blanco alrededor de todo el tablero en el celular */
+        padding: 20px; 
+        min-height: auto;
+    }
 
-.cuttingBoard-section {
-    padding: 20px 5% 60px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    min-height: 80vh; 
-}
+    .cuttingBoard-container {
+        position: relative;
+        width: 100%;
+        height: 120svh; 
+        border-radius: 20px; /* aqui estoy redondeando los bordes porque mi cutting board se corta en el cel */
+        overflow: hidden; 
+        margin: 0 auto;
+    }
 
-/* El contenedor "padre" que mantendrá todo en su lugar */
-.cuttingBoard-container {
-    position: relative; 
-    width: 100%;
-    max-width: 1400px; 
-    margin: -20px auto 0;
-}
+    .cuttingBoard-base {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120svh; 
+        height: 100vw; 
+        transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+        object-fit: cover; 
+    }
 
-/* Tu imagen del corcho */
-.cuttingBoard-base {
-    display: block;
-    width: 100%;
-    height: auto; 
+    .events-postit {
+        top: 4%; 
+        left: 50%;
+        transform: translateX(-50%) rotate(-4deg); 
+        width: 45%; 
+        max-width: 160px;
+    }
+
+    .projects-postit {
+        top: 50%; 
+        left: 50%;
+        transform: translateX(-50%) rotate(5deg); 
+        width: 45%;
+        max-width: 160px;
+    }
 }
