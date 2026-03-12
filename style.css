@@ -163,7 +163,7 @@ body {
 @keyframes riseFade {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -307,6 +307,7 @@ body {
     align-items: flex-start;
     width: 100%;
     min-height: 80vh; 
+    animation: riseFade .5s ease-out forwards;
 }
 
 .cuttingBoard-container {
@@ -327,7 +328,7 @@ body {
     top: 12%;
     right: 15%;
     width: 15%;
-    min-width: 120px; 
+    min-width: 70px; 
     max-width: 200px; 
     z-index: 10;
     transform: rotate(6deg); 
@@ -339,11 +340,23 @@ body {
     top: 12%;
     left: 15%;
     width: 15%;
-    min-width: 120px; 
+    min-width: 70px; 
     max-width: 200px; 
     z-index: 10;
     transform: rotate(-4deg); 
     filter: drop-shadow(-3px 5px 8px rgba(0, 0, 0, 0.3)); 
+}
+
+.event-paper {
+    position: absolute;
+    top: 26%; 
+    left: 6%; 
+    width: 20%; /* Más grande que el post-it para que destaque */
+    min-width: 120px;
+    max-width: 350px;
+    z-index: 5; 
+    transform: rotate(6deg); 
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); 
 }
 
 /* todo esto hace que la pagina sea apta para pantallas pequenas, es decir para el celular */
@@ -433,6 +446,7 @@ body {
         left: 50%;
         transform: translateX(-50%) rotate(-4deg); 
         width: 45%; 
+        min-width: 50px;
         max-width: 160px;
     }
 
@@ -441,6 +455,16 @@ body {
         left: 50%;
         transform: translateX(-50%) rotate(5deg); 
         width: 45%;
+        min-width: 50px;
         max-width: 160px;
+    }
+
+    .event-paper {
+        top: 12%; 
+        left: 50%;
+        transform: translateX(-85%) rotate(6deg); 
+        width: 75%; 
+        min-width: 100px;
+        max-width: 300px;
     }
 }
