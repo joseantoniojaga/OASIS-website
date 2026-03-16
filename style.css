@@ -359,6 +359,19 @@ body {
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); 
 }
 
+.event-pictures {
+    position: absolute;
+    top: 20%;       
+    left: 23%;      
+    width: 20%; 
+    min-width: 120px; 
+    max-width: 350px; 
+    z-index: 1;
+    transform: rotate(3deg); 
+    filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+
 /* todo esto hace que la pagina sea apta para pantallas pequenas, es decir para el celular */
 @media (max-width: 768px) {
     .main-header {
@@ -369,6 +382,15 @@ body {
         position: static;
         transform: none;
         margin: 20px 0;
+    }
+ 
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 12px; 
+    }
+    .nav-links li a {
+        font-size: 0.7rem; 
     }
 
     .pillars-grid {
@@ -441,30 +463,46 @@ body {
         object-fit: cover; 
     }
 
-    .events-postit {
-        top: 4%; 
-        left: 50%;
-        transform: translateX(-50%) rotate(-4deg); 
-        width: 45%; 
-        min-width: 50px;
-        max-width: 160px;
-    }
-
     .projects-postit {
         top: 50%; 
         left: 50%;
         transform: translateX(-50%) rotate(5deg); 
-        width: 45%;
-        min-width: 50px;
-        max-width: 160px;
+        width: 38%;
+        min-width: 80px;
+        max-width: 140px;
+        z-index: 10;
     }
 
+    .events-postit {
+        top: 6%; 
+        left: 8%;         /* Lo pegamos hacia la izquierda */
+        transform: rotate(-4deg); /* Quitamos el translateX(-50%) */
+        width: 40%;       
+        min-width: 90px;  
+        max-width: 150px;
+        z-index: 10;      
+    }
+
+    /* 2. Papel rasgado (Desfasado a la derecha para proteger el texto) */
     .event-paper {
-        top: 12%; 
-        left: 50%;
-        transform: translateX(-85%) rotate(6deg); 
-        width: 75%; 
-        min-width: 100px;
-        max-width: 300px;
+        top: 14%;         /* Lo subimos para que se meta bajo el post-it */
+        left: 15%;        /* Lo empujamos a la derecha para que el post-it solo toque el margen en blanco izquierdo */
+        transform: rotate(2deg); 
+        width: 65%;       /* Un poco más grande para que el texto sea legible */
+        min-width: 140px; 
+        max-width: 240px;
+        z-index: 5;       
+    }
+
+    /* 3. Fotos Polaroid (A la derecha, debajo del papel) */
+    .event-pictures {
+        top: 22%;         /* Las bajamos un poco para que se asomen bien */
+        right: 4%;        /* Pegadas a la derecha */
+        left: auto;       
+        transform: rotate(-3deg); 
+        width: 55%;       
+        min-width: 110px; 
+        max-width: 200px;
+        z-index: 3;       
     }
 }
