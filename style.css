@@ -24,6 +24,7 @@ body {
 }
 
 
+
 .logo-img {
     height: 40px; 
     width: auto;  
@@ -81,13 +82,18 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1px;
-    border-bottom: 2px solid #003f2b; 
+    border-bottom: 2px solid #003f2b;
     padding-bottom: 4px;
-    transition: 0.3s;
+    transition: opacity 0.3s;
 }
 
 .join-btn:hover {
     opacity: 0.6;
+}
+
+.join-btn-hero-hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* ABOUT US - MISSION & VISION */
@@ -218,6 +224,194 @@ body {
 /* Nota: Si usas esto, cambia el hover para que no se rompa */
 .postit-a:hover {
     transform: scale(1.02) !important;
+}
+
+/* HOME - HERO */
+
+.hero-section {
+    min-height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #a1c68b;
+    margin: 0 0 28px;
+    opacity: 0;
+    animation: riseFade 1s ease-out 0.1s both;
+}
+
+.hero-logo-img {
+    height: clamp(70px, 14vw, 160px);
+    width: auto;
+    display: block;
+    margin: 0 auto 36px;
+    opacity: 0;
+    animation: riseFade 1.2s ease-out 0.2s both;
+}
+
+.hero-divider {
+    width: 50px;
+    height: 1px;
+    background-color: #4d4d4d;
+    opacity: 0.3;
+    margin: 0 auto 32px;
+    animation: riseFade 1s ease-out 0.35s both;
+}
+
+.hero-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.4vw, 1.35rem);
+    color: #4d4d4d;
+    line-height: 1.5;
+    margin: 0 0 32px;
+    opacity: 0;
+    animation: riseFade 1s ease-out 0.45s both;
+}
+
+.hero-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.93rem;
+    color: #4d4d4d;
+    line-height: 1.9;
+    max-width: 580px;
+    margin: 0 auto 52px;
+    opacity: 0;
+    animation: riseFade 1s ease-out 0.55s both;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: riseFade 1s ease-out 0.65s both;
+}
+
+.hero-cta-primary {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    background-color: #003f2b;
+    padding: 14px 34px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.hero-cta-primary:hover {
+    opacity: 0.8;
+}
+
+.hero-cta-secondary {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #003f2b;
+    text-decoration: none;
+    border-bottom: 2px solid #003f2b;
+    padding-bottom: 4px;
+    transition: opacity 0.3s;
+}
+
+.hero-cta-secondary:hover {
+    opacity: 0.6;
+}
+
+/* HOME - FEATURE CARDS */
+
+.features-section {
+    padding: 80px 5% 100px;
+    background-color: #f7f7f4;
+}
+
+.features-section .section-title-lines {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 44px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: riseFade 1s ease-out both;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+}
+
+.fc-delay-1 { animation-delay: 0.3s; }
+.fc-delay-2 { animation-delay: 0.5s; }
+.fc-delay-3 { animation-delay: 0.7s; }
+
+.feature-card-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #003f2b;
+    letter-spacing: 2px;
+    margin: 0 0 16px;
+}
+
+.feature-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: #4d4d4d;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.feature-card-arrow {
+    display: inline-block;
+    margin-top: 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #003f2b;
+    border-bottom: 1px solid #003f2b;
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+.feature-card:hover .feature-card-arrow {
+    opacity: 0.6;
 }
 
 /* FOOTER */
@@ -438,9 +632,28 @@ body {
         gap: 50px;
     }
 
+    .hero-section {
+        min-height: auto;
+        padding: 60px 5%;
+    }
+
+    .hero-logo-img {
+        height: clamp(60px, 20vw, 100px);
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
     .cuttingBoard-section {
         /* Esto crea el margen blanco alrededor de todo el tablero en el celular */
-        padding: 20px; 
+        padding: 20px;
         min-height: auto;
     }
 
